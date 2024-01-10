@@ -1,1 +1,40 @@
 <p>shops works!</p>
+<div *ngIf="!viewShop; else singleShopView" class="container">
+    <div class="row">
+        <h2>Shops</h2>
+    </div>
+    <div class="row">
+        <div class="col">
+            <ul>
+                <li  *ngFor="let shop of shops; index as i">
+                   <a (click)="checkId(i+1)" routerLink="/shop/{{i + 1}}">{{shop.name}}</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<ng-template #singleShopView>
+    <div class="container">
+    <div class="row">
+        <h2>Shopsss</h2>
+    </div>
+    <div class="row">
+        <div class="col">
+            <ul>
+                <li>
+                   <p>{{singleShop.name}}</p>
+                </li>
+                <li>
+                    <p>{{singleShop.piva}}</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <app-addproduct></app-addproduct>
+        </div>
+    </div>
+</div>
+</ng-template>

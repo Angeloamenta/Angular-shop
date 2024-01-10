@@ -1,1 +1,11 @@
 <p>addproduct works!</p>
+<button (click)="addOneProduct()">Add</button>
+<form class="" [formGroup]="addNewProduct" (ngSubmit)="addOneProduct()">
+                    <label for="name">Nome</label>
+                    <input class="edit-note-input w-50 p-3" type="text" name="name" formControlName="name">
+                    <label for="quantity">Quantità</label>
+                    <input class="edit-note-input w-50 p-3" type="number" name="quantity" formControlName="quantity">
+                    <label for="imagelink">Img</label>
+                    <input class="edit-note-input w-50 p-3" type="text" name="imagelink" formControlName="imagelink">
+                    <input class="button w-25 my-3" type="submit" value="invio">
+</form>

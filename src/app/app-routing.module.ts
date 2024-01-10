@@ -9,7 +9,8 @@ import { AddproductComponent } from './components/addproduct/addproduct.componen
 
 const routes: Routes = [
   {path: "" , component:HomeComponent},
-  { path: "shops", component: ShopsComponent},
+  { path: "shops", component: ShopsComponent },
+  {path: 'shop/:id',component: ShopsComponent},
   { path: "login", component: LoginComponent },
   { path: "addshop", component: AddShopComponent },
   {path: "addproduct" , component:AddproductComponent},

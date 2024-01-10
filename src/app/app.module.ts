@@ -17,6 +17,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { InterceptorInterceptor } from './interceptor/interceptor.interceptor';
 import { AddShopComponent } from './components/add-shop/add-shop.component';
 import { AddproductComponent } from './components/addproduct/addproduct.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { AddproductComponent } from './components/addproduct/addproduct.componen
   imports: [
     BrowserModule,
     AppRoutingModule,FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: InterceptorInterceptor, multi: true }],
   bootstrap: [AppComponent]

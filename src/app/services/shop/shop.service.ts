@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { tap } from 'rxjs';
+import {  OnInit } from '@angular/core';
+
+
 
 
 @Injectable({
@@ -11,55 +13,21 @@ export class ShopService {
   constructor(private http: HttpClient) { }
 
 shopAll = 'http://localhost:8089/shop/all';
-loginUrl = 'http://localhost:8089/authenticate';
-passToken: any;
-urlShop= 'http://localhost:8089/shop/'
-
-
+  urlShop = 'http://localhost:8089/shop/';
+  shops: any
+  id:any
   
-  loginUser(name: string, password: string, email: string) {
 
-    const headersLogin = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'accept': '*/*'
-    });
+  ngOnInit() {
+     this.http.get(this.shopAll).subscribe((response) => {
+       this.shops = response;
+       console.log("response",response);
+       console.log("this.shop", this.shops);
+      console.log("this shops", this.shops);
 
-    const body = {
-      username: name,
-      password: password,
-      email: email
-    }
-
-    this.http.post(this.loginUrl, body, { headers: headersLogin }).subscribe((data) => {
-     this.passToken = data;
-      console.log("data", data);
-      console.log(this.passToken.jwttoken);
-      
-    localStorage.setItem('jwttoken', this.passToken.jwttoken);
-  })
-  }
-
-
-   addShop(id:number, pIva:string, shopName:string, shop:string) {
-
-     const url = 'http://localhost:8089/shop';
-
-     const headers = new HttpHeaders({
-       'accept': '*/*',
-       'Content-Type': 'application/json'
      });
-    
-     const shopData = {
-       "id": id,
-       "piva": pIva,
-       "name": shopName      
-     };
-
-     this.http.post(url, shopData, { headers: headers }).subscribe((response) => {
-       console.log('Response:', response);
-     });
-    
-   }
+}
+  
   
   deleteShop(id:number) {
 
@@ -68,43 +36,38 @@ urlShop= 'http://localhost:8089/shop/'
        'accept': '*/*',
        'Content-Type': 'application/json'
      });
-    console.log(url);
+    console.log("delete", id, url);
     
-     return this.http.delete(url, { headers: headers });
+    return this.http.delete(url, { headers: headers }).subscribe((response) => {
+       console.log(response);
+       
+     });
 
   }
-  
-  addProduct(productId:number, productName:string, quantity:number, image:string,shopId:number , pIva:string, shopName:string) {
 
-     const url = 'http://localhost:8089/shop/0';
+   patchShop(id:number, pIva:string, shopName:string) {
+
+     const url = `http://localhost:8089/shop/${id}`;
 
      const headers = new HttpHeaders({
        'accept': '*/*',
        'Content-Type': 'application/json'
      });
     
-    const productData = {
-      "id": productId,
-      "name": productName,
-      "quantity": quantity,
-      "imageLink": image,
-      "shop": {
-        "id": shopId,
-        "piva": pIva,
-        "name": shopName,
-        "products": [
-          "string"
-        ]
-      }
-    }
+    const shopData = {
+      "id": 0,
+       "piva": pIva,
+       "name": shopName      
+     };
 
-
-     this.http.post(url, productData, { headers: headers }).subscribe((response) => {
+     this.http.patch(url, shopData, { headers: headers }).subscribe((response) => {
        console.log('Response:', response);
      });
     
-   }
-
+    
+  }
+  
+  
    }
 
 

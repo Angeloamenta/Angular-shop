@@ -1,1 +1,14 @@
 <p>add-shop works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col">
+                <form class="" [formGroup]="addNewShop" (ngSubmit)="addOneShop()">
+                    <label for="pivashop">p.iva</label>
+                    <input class="edit-note-input w-50 p-3" type="text" name="pivashop" formControlName="pivashop">
+                    <label for="shopname">Nome Shop</label>
+                    <input class="edit-note-input w-50 p-3" type="text" name="shopname" formControlName="shopname">
+                    <input class="button w-25 my-3" type="submit" value="invio">
+                </form>
+        </div>
+    </div>
+</div>
