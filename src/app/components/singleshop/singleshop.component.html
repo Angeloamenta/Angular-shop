@@ -1,0 +1,15 @@
+<div  class="col" *ngFor="let single of oneShop">
+    <h1>
+        {{single.name}}
+    </h1>
+    <h5>{{single.piva}}</h5>
+</div>
+<div>
+    <button (click)="editShop()">Modifica</button>
+</div>
+<div *ngIf="editshoppopup" class="popup absolute w-100 h-100 d-flex justify-content-center align-items-center">
+    <div class="box-popup">
+        <app-editshop></app-editshop>
+        <span class="exit d-flex justify-content-center align-items-center" (click)="editShop()">X</span>
+    </div>
+</div>

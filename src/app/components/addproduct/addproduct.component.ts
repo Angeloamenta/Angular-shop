@@ -51,7 +51,7 @@ addNewProduct:any = FormGroup
         
         console.log('Response:', response);
       });
-    
+    window.location.reload();
   }
   
   addOneProduct() {
@@ -59,7 +59,9 @@ addNewProduct:any = FormGroup
     const name = this.addNewProduct.value.name
     const quantity = this.addNewProduct.value.quantity
     const image = this.addNewProduct.value.imagelink
-    this.addProduct(id,name, quantity, image)
+    this.addProduct(id, name, quantity, image)
+    console.log("image", image);
+    
   }
 }
 

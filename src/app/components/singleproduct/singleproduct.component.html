@@ -1,0 +1,11 @@
+<div class="container">
+    <div class="row">
+        <div *ngFor="let single of oneProduct" class="col">
+            <div>
+                <img [src]="single.imageLink" alt="Immagine Prodotto">
+            </div>
+            <h2>{{single.name}}</h2>
+            <p>{{single.quantity}}</p>
+        </div>
+    </div>
+</div>

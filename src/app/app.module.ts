@@ -18,6 +18,14 @@ import { InterceptorInterceptor } from './interceptor/interceptor.interceptor';
 import { AddShopComponent } from './components/add-shop/add-shop.component';
 import { AddproductComponent } from './components/addproduct/addproduct.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ProductsComponent } from './components/products/products.component';
+import { SingleshopComponent } from './components/singleshop/singleshop.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import { SingleproductComponent } from './components/singleproduct/singleproduct.component';
+import { EditshopComponent } from './components/editshop/editshop.component';
 
 
 @NgModule({
@@ -29,12 +37,20 @@ import { ReactiveFormsModule } from '@angular/forms';
     ShopsComponent,
     AddShopComponent,
     AddproductComponent,
+    ProductsComponent,
+    SingleshopComponent,
+    SingleproductComponent,
+    EditshopComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatIconModule
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: InterceptorInterceptor, multi: true }],
   bootstrap: [AppComponent]

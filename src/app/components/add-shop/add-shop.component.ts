@@ -48,7 +48,7 @@ addNewShop:any = FormGroup
        console.log('Response:', response);
      });
     
-    
+    this.addNewShop.reset()
   }
   
   addOneShop() {

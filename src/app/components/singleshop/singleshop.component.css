@@ -1,0 +1,32 @@
+.popup {
+    top: 0;
+    background: rgba(0,0,0,0.6);
+    width: 100%;
+    z-index: 999;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    animation: fadeBackground 0.5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeBackground {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.box-popup {
+    height: 70%;
+    width: 40%;
+    background-color: white;
+    position: relative;
+}
+
+.exit {
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    right: 10px;
+    top: 10px;
+    border: 1px solid gray;
+}

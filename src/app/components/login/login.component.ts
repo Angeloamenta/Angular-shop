@@ -43,7 +43,7 @@ email: any
     this.passToken = data;
        localStorage.setItem('jwttoken', this.passToken.jwttoken);
        this.badlogin = false
-       this.router.navigateByUrl("/");
+       this.router.navigateByUrl("/shops");
      },
        (error) => {
       // Gestione dell'errore qui

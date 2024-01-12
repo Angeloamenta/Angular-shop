@@ -13,19 +13,16 @@ export class ShopService {
   constructor(private http: HttpClient) { }
 
 shopAll = 'http://localhost:8089/shop/all';
-  urlShop = 'http://localhost:8089/shop/';
-  shops: any
-  id:any
+urlShop = 'http://localhost:8089/shop/';
+shops: any
+id: any
+idProduct: any
+  
+
   
 
   ngOnInit() {
-     this.http.get(this.shopAll).subscribe((response) => {
-       this.shops = response;
-       console.log("response",response);
-       console.log("this.shop", this.shops);
-      console.log("this shops", this.shops);
 
-     });
 }
   
   

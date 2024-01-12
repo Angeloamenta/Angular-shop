@@ -1,0 +1,11 @@
+<div *ngIf="viewProduct; else singleProductView" class="col">
+    <ul>
+        <li routerLink="/shop/{{idShop}}/product/{{product.id}}" (click)="checkId(i)" *ngFor="let product of products; index as i">
+        {{product.name}}
+        </li>
+    </ul>
+</div>
+
+<ng-template #singleProductView>
+    <!-- <app-singleproduct></app-singleproduct> -->
+</ng-template>
